@@ -22,6 +22,7 @@ dependencies:
   web3dart: ^2.7.3
 
 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -35,5 +36,6 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/
+    - assets/icons/
     - .env
 
