@@ -1,4 +1,8 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:mobile_calo_app/src/presentations/widgets/widget.dart';
+import 'package:mobile_calo_app/src/utils/util.dart';
 
 part 'history_fragment.dart';
 part 'home_fragment.dart';

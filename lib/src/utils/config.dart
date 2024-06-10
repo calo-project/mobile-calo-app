@@ -25,17 +25,23 @@ class Config {
     height: screenHeight! * 0.08,
   );
 
-  static const greyColor = Color(0xFF686777);
+  static const primaryColor = Color(0xFF141414);
+
+  static const secunderColor = Color(0xFF1F1F1F);
+
+  static const greyColor = Color(0xFF8C8D89);
 
   static const dividerColor = Color(0xFFE2E3E4);
 
   static const fontColor = Color(0xFF04021D);
 
-  static const backColor = Color(0xFF554AF0);
+  static const fontSecunderColor = Color(0xFF8C8D89);
 
-  static const buttonColor = Color(0xFF2B637B);
+  static const iconColor = Color(0xFF554AF0);
 
-  static TextStyle defaultStyle = GoogleFonts.inter();
+  static const buttonColor = Color(0xFF7D61F2);
+
+  static const TextStyle defaultStyle = TextStyle(fontFamily: 'Inter');
 
   static TextStyle textStyleButton = defaultStyle.copyWith(
     fontSize: 18.0,

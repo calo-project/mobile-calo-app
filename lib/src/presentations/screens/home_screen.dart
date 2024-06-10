@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 part of 'screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -23,6 +25,19 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  Widget _getIcon(String assetName, bool isSelected) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 5),
+      child: SvgPicture.asset(
+        width: 20,
+        height: 20,
+        assetName,
+        // ignore: deprecated_member_use
+        color: isSelected ? Config.iconColor : Config.fontSecunderColor,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,31 +54,33 @@ class _HomeScreenState extends State<HomeScreen> {
       bottomNavigationBar: SizedBox(
         height: 70,
         child: BottomNavigationBar(
+          elevation: 1,
+          backgroundColor: Config.primaryColor,
           type: BottomNavigationBarType.fixed,
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: Icon(Icons.home, color: _selectedIndex == 0 ? Colors.purple : Colors.blue[300]),
+              icon: _getIcon('assets/icons/home-icon.svg', _selectedIndex == 0),
               label: 'Beranda',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.confirmation_number, color: _selectedIndex == 1 ? Colors.purple : Colors.blue[300]),
+              icon: _getIcon('assets/icons/ticket-icon.svg', _selectedIndex == 1),
               label: 'Tiket',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.history, color: _selectedIndex == 2 ? Colors.purple : Colors.blue[300]),
+              icon: _getIcon('assets/icons/history-icon.svg', _selectedIndex == 2),
               label: 'Riwayat',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.person, color: _selectedIndex == 3 ? Colors.purple : Colors.blue[300]),
+              icon: _getIcon('assets/icons/profile-icon.svg', _selectedIndex == 3),
               label: 'Akun',
             ),
           ],
           currentIndex: _selectedIndex,
-          selectedItemColor: Colors.purple,
-          unselectedItemColor: Colors.blue[300],
+          selectedItemColor: Config.iconColor,
+          unselectedItemColor: Config.fontSecunderColor,
           onTap: _onItemTapped,
-          selectedFontSize: 14,
-          unselectedFontSize: 14,
+          selectedFontSize: 16,
+          unselectedFontSize: 16,
           showUnselectedLabels: true,
         ),
       ),
