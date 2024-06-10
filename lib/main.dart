@@ -1,15 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:mobile_calo_app/src/blocs/bloc.dart';
-import 'package:mobile_calo_app/src/models/model.dart';
 import 'package:mobile_calo_app/src/navigations/navigation.dart';
-import 'package:mobile_calo_app/src/presentations/screens/screen.dart';
-import 'package:mobile_calo_app/src/repositories/repository.dart';
-import 'package:mobile_calo_app/src/services/service.dart';
-import 'package:mobile_calo_app/src/utils/util.dart';
-import 'package:mobile_calo_app/src/presentations/fragments/fragment.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -28,11 +20,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    return const MaterialApp(
-        debugShowCheckedModeBanner: false,
-        initialRoute: Routes.welcomeScreen,
-        onGenerateRoute: Routes.generateRoute,
-      );
+    return MaterialApp(
+      theme: ThemeData(
+        splashColor: Colors.transparent,
+        highlightColor: Colors.transparent,
+        hoverColor: Colors.transparent,
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+          selectedIconTheme: IconThemeData(color: Colors.purple),
+          unselectedIconTheme: IconThemeData(color: Colors.blue[300]),
+        ),
+      ),
+      debugShowCheckedModeBanner: false,
+      initialRoute: Routes.welcomeScreen,
+      onGenerateRoute: Routes.generateRoute,
+    );
   }
 }

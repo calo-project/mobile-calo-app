@@ -23,13 +23,13 @@ class WelcomeScreen extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(20.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text('Beli Tiket,',
                       style: Config.textStyleHeadlineLarge
-                          .copyWith(color: Colors.white)),
+                          .copyWith(color: Colors.white,)),
                   Text('Enjoy Event,',
                       style: Config.textStyleHeadlineLarge
                           .copyWith(color: Colors.white)),
@@ -52,7 +52,12 @@ class WelcomeScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  if (kDebugMode) {
+                    print("Button clicked!");
+                  }
+                  navigateAndRemoveUntil(context, Routes.homeScreen);
+                },
                 style: ElevatedButton.styleFrom(
                   foregroundColor: Colors.white,
                   backgroundColor: const Color(0xFF6B4EFF),

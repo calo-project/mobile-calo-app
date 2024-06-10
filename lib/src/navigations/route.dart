@@ -2,10 +2,12 @@ part of 'navigation.dart';
 
 class Routes {
   static const String welcomeScreen = '/';
-  static const String homeScreen = '/home';
-  static const String ticketScreen = '/ticket';
-  static const String historyScreen = '/history';
-  static const String profileScreen = '/profile';
+  static const String homeScreen = '/home_screen';
+  static const String homeFragment = '/home_fragment';
+  static const String ticketFragment = '/ticket__fragment';
+  static const String historyFragment = '/history_fragment';
+  static const String profileFragment = '/profile_fragment';
+
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -14,22 +16,27 @@ class Routes {
           builder: (_) => const WelcomeScreen(),
           settings: settings,
         );
-      case homeScreen:
+      case homeFragment:
         return MaterialPageRoute(
           builder: (_) => const HomeFragment(),
           settings: settings,
         );
-      case ticketScreen:
+      case ticketFragment:
         return MaterialPageRoute(
           builder: (_) => const TicketFragment(),
           settings: settings,
         );
-      case historyScreen:
+      case historyFragment:
         return MaterialPageRoute(
           builder: (_) => const HistoryFragment(),
           settings: settings,
         );
-      case profileScreen:
+      case homeScreen:
+        return MaterialPageRoute(
+          builder: (_) => const HomeScreen(),
+          settings: settings,
+        );
+      case profileFragment:
         return MaterialPageRoute(
           builder: (_) => const ProfileFragment(),
           settings: settings,

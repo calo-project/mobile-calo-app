@@ -20,6 +20,7 @@ dependencies:
   shimmer: ^3.0.0
   google_fonts: ^6.2.1
   web3dart: ^2.7.3
+  persistent_bottom_nav_bar: ^5.0.2
 
 
 
@@ -37,5 +38,6 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+    - assets/google_fonts/
     - .env
 

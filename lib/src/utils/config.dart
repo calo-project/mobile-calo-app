@@ -45,7 +45,7 @@ class Config {
 
   static TextStyle textStyleHeadlineLarge = defaultStyle.copyWith(
     fontSize: 28.0,
-    fontWeight: FontWeight.w900,
+    fontWeight: FontWeight.bold,
     color: Colors.white,
   );
 
