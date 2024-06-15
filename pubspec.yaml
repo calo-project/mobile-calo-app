@@ -24,8 +24,6 @@ dependencies:
   flutter_svg: ^2.0.10+1
   blur: ^4.0.0
 
-
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -63,3 +61,8 @@ flutter:
           weight: 600
         - asset: assets/google_fonts/Inter-Thin.ttf
           weight: 100
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/icons/icon.png"

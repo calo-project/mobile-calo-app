@@ -45,11 +45,11 @@ class RecommendationCard extends StatelessWidget {
               ),
               Text(
                 eventLocation,
-                style: const TextStyle(fontSize: 10, color: Colors.white),
+                style: const TextStyle(fontSize: 14, color: Colors.white),
               ),
               Text(
                 eventDate,
-                style: const TextStyle(fontSize: 10, color: Colors.white),
+                style: const TextStyle(fontSize: 14, color: Colors.white),
               ),
             ],
           ),
