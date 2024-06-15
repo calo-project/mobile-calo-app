@@ -10,9 +10,14 @@ class TicketFragment extends StatefulWidget {
 class _TicketFragmentState extends State<TicketFragment> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: Colors.black,
-      body: SafeArea(child: EventTicketPage()),
+    return Scaffold(
+      backgroundColor: Config.primaryColor,
+      appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: Config.primaryColor,
+        title: const Text('Tiket', style: TextStyle(color: Colors.white),),
+      ),
+      body: const SafeArea(child: EventTicketPage()),
     );
   }
 }

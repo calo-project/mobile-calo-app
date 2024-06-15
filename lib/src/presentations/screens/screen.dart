@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:mobile_calo_app/src/navigations/navigation.dart';
 import 'package:mobile_calo_app/src/utils/util.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:mobile_calo_app/src/presentations/widgets/widget.dart';
 
 part 'welcome_screen.dart';
 part 'home_screen.dart';
+part 'history_screens/verified_screen.dart';
+part 'history_screens/not_verified_screen.dart';
