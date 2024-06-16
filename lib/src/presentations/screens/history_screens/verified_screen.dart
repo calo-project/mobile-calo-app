@@ -90,51 +90,62 @@ class TicketCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8.0),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              width: 60,
-              height: 60,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(eventImage),
-                  fit: BoxFit.cover,
-                ),
-                borderRadius: BorderRadius.circular(8.0),
-              ),
-            ),
-            const SizedBox(width: 16),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    eventTitle,
-                    style: const TextStyle(
-                        fontSize: 18, fontWeight: FontWeight.bold),
+    return GestureDetector(
+      onTap: () {
+        if (kDebugMode) {
+          print("Button clicked!");
+        }
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const DetailHistoryScreen()),
+        );
+      },
+      child: Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8.0),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                width: 60,
+                height: 60,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(eventImage),
+                    fit: BoxFit.cover,
                   ),
-                  Text(location),
-                  Text(venue),
-                  const SizedBox(height: 8),
-                  Text(dateTime),
-                  Text(details),
-                ],
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
               ),
-            ),
-            TextButton(
-              onPressed: () {
-                // Handle view details action
-              },
-              child: const Text('Lihat detail'),
-            ),
-          ],
+              const SizedBox(width: 16),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      eventTitle,
+                      style: const TextStyle(
+                          fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                    Text(location),
+                    Text(venue),
+                    const SizedBox(height: 8),
+                    Text(dateTime),
+                    Text(details),
+                  ],
+                ),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, Routes.detailHistoryScreen);
+                },
+                child: const Text('Lihat detail'),
+              ),
+            ],
+          ),
         ),
       ),
     );

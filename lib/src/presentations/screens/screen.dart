@@ -11,3 +11,5 @@ part 'history_screens/verified_screen.dart';
 part 'history_screens/not_verified_screen.dart';
 part 'history_screens/detail_history_screen.dart';
 part 'event_screens/detail_event_screen.dart';
+part 'auth_screens/sign_in_screen.dart';
+part 'auth_screens/sign_up_screen.dart';

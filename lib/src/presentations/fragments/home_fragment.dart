@@ -91,7 +91,7 @@ class HomeFragment extends StatelessWidget {
                       return Padding(
                         padding: const EdgeInsets.only(right: 8.0),
                         child: GestureDetector(
-                          onTap: () {},
+                          onTap: () {Navigator.pushNamed(context, Routes.detailEventScreen);},
                           child: const EventCard(
                             imageUrl:
                                 'https://miro.medium.com/v2/resize:fit:800/1*FWMTpgD_WMu-roVdHiInJA.jpeg',

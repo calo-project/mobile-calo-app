@@ -7,6 +7,10 @@ class Routes {
   static const String ticketFragment = '/ticket__fragment';
   static const String historyFragment = '/history_fragment';
   static const String profileFragment = '/profile_fragment';
+  static const String signInScreen = '/sign_in_screen';
+  static const String signUpScreen = '/sign_up_screen';
+  static const String detailEventScreen = '/detail_event_screen';
+  static const String detailHistoryScreen = '/detail_history_screen';
 
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -39,6 +43,26 @@ class Routes {
       case profileFragment:
         return MaterialPageRoute(
           builder: (_) => const ProfileFragment(),
+          settings: settings,
+        );
+      case signInScreen:
+        return MaterialPageRoute(
+          builder: (_) => const SignInScreen(),
+          settings: settings,
+        );
+      case detailEventScreen:
+        return MaterialPageRoute(
+          builder: (_) => const DetailEventScreen(),
+          settings: settings,
+        );
+      case detailHistoryScreen:
+        return MaterialPageRoute(
+          builder: (_) => const DetailHistoryScreen(),
+          settings: settings,
+        );
+      case signUpScreen:
+        return MaterialPageRoute(
+          builder: (_) => const SignUpScreen(),
           settings: settings,
         );
       default:

@@ -56,7 +56,7 @@ class WelcomeScreen extends StatelessWidget {
                   if (kDebugMode) {
                     print("Button clicked!");
                   }
-                  navigateAndRemoveUntil(context, Routes.homeScreen);
+                  Navigator.pushNamed(context, Routes.signInScreen);
                 },
                 style: ElevatedButton.styleFrom(
                   foregroundColor: Colors.white,
