@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         highlightColor: Colors.transparent,
         hoverColor: Colors.transparent,
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
-          selectedIconTheme: IconThemeData(color: Colors.purple),
+          selectedIconTheme: const IconThemeData(color: Colors.purple),
           unselectedIconTheme: IconThemeData(color: Colors.blue[300]),
         ),
       ),

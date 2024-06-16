@@ -9,3 +9,5 @@ part 'welcome_screen.dart';
 part 'home_screen.dart';
 part 'history_screens/verified_screen.dart';
 part 'history_screens/not_verified_screen.dart';
+part 'history_screens/detail_history_screen.dart';
+part 'event_screens/detail_event_screen.dart';

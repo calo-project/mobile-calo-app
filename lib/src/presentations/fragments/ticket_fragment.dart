@@ -117,7 +117,7 @@ class _EventTicketPageState extends State<EventTicketPage> {
           return dateChip(
             dates[index]['date']!,
             dates[index]['day']!,
-            isSelected: index == 1, // Assume the second item is selected
+            isSelected: index == 1,
           );
         },
       ),
