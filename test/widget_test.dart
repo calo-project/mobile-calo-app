@@ -6,14 +6,21 @@
 // tree, read text, and verify that the values of widget properties are correct.
 
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:mobile_calo_app/main.dart';
+import 'package:mobile_calo_app/src/repositories/repository.dart';
 
-void main() {
+void main() async {
+  await dotenv.load(fileName: ".env");
+
+  final authRepository = AuthRepository(
+    baseUrl: dotenv.env['BASE_URL']!,
+  );  
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+    await tester.pumpWidget(MyApp(authRepository: authRepository,));
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);

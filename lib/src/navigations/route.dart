@@ -47,7 +47,7 @@ class Routes {
         );
       case signInScreen:
         return MaterialPageRoute(
-          builder: (_) => const SignInScreen(),
+          builder: (_) => SignInScreen(),
           settings: settings,
         );
       case detailEventScreen:
