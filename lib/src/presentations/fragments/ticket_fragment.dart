@@ -109,7 +109,7 @@ class _EventTicketPageState extends State<EventTicketPage> {
 
   Widget dateSelector() {
     return SizedBox(
-      height: 80,
+      height: 70,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: dates.length,
@@ -127,7 +127,7 @@ class _EventTicketPageState extends State<EventTicketPage> {
   Widget dateChip(String date, String day, {bool isSelected = false}) {
     return Container(
       width: 60,
-      height: 80,
+      height: 70,
       margin: const EdgeInsets.only(right: 8.0),
       padding: const EdgeInsets.symmetric(vertical: 8),
       decoration: BoxDecoration(

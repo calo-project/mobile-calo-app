@@ -17,6 +17,7 @@ class NotVerifiedScreen extends StatelessWidget {
             time: "19.00 WIB",
             date: "19 Feb 2024",
             type: "Regular",
+            colors: Colors.yellowAccent
           ),
           SizedBox(height: 16),
           TicketCardWidget(
@@ -26,6 +27,7 @@ class NotVerifiedScreen extends StatelessWidget {
             time: "19.30 WIB",
             date: "25 Feb 2024",
             type: "VIP",
+            colors: Colors.yellowAccent
           ),
         ],
       ),

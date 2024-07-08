@@ -13,3 +13,7 @@ part 'user_blocs/user_state.dart';
 part 'auth_blocs/auth_bloc.dart';
 part 'auth_blocs/auth_event.dart';
 part 'auth_blocs/auth_state.dart';
+
+part 'app_blocs/app_bloc.dart';
+part 'app_blocs/app_event.dart';
+part 'app_blocs/app_state.dart';

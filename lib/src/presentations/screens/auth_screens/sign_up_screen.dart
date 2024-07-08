@@ -28,10 +28,11 @@ class SignUpScreen extends StatelessWidget {
                   MediaQuery.of(context).padding.top,
             ),
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              padding: const EdgeInsets.symmetric(horizontal: 15.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  const SizedBox(height: 20),
                   const Text(
                     'Nama',
                     style: TextStyle(
@@ -41,7 +42,7 @@ class SignUpScreen extends StatelessWidget {
                     ),
                     textAlign: TextAlign.start,
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 10),
                   TextField(
                     style: const TextStyle(color: Colors.white),
                     decoration: InputDecoration(
@@ -55,6 +56,7 @@ class SignUpScreen extends StatelessWidget {
                       hintStyle: const TextStyle(color: Colors.grey),
                     ),
                   ),
+                  const SizedBox(height: 20),
                   const Text(
                     'Email',
                     style: TextStyle(
@@ -64,7 +66,7 @@ class SignUpScreen extends StatelessWidget {
                     ),
                     textAlign: TextAlign.start,
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 10),
                   TextField(
                     style: const TextStyle(color: Colors.white),
                     decoration: InputDecoration(
@@ -88,7 +90,7 @@ class SignUpScreen extends StatelessWidget {
                     ),
                     textAlign: TextAlign.start,
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 10),
                   TextField(
                     style: const TextStyle(color: Colors.white),
                     obscureText: true,
@@ -117,7 +119,7 @@ class SignUpScreen extends StatelessWidget {
                     ),
                     textAlign: TextAlign.start,
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 10),
                   TextField(
                     style: const TextStyle(color: Colors.white),
                     obscureText: true,
@@ -142,11 +144,13 @@ class SignUpScreen extends StatelessWidget {
                     height: 50,
                     child: ElevatedButton(
                       onPressed: () {
-                        // Handle sign up
+                        // TODO
                       },
                       style: ElevatedButton.styleFrom(
+                        foregroundColor: Colors.white,
+                        backgroundColor: Config.buttonColor,
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8.0),
+                          borderRadius: BorderRadius.circular(10.0),
                         ),
                       ),
                       child: const Text(
