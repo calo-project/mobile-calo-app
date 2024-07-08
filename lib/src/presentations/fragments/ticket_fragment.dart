@@ -109,7 +109,7 @@ class _EventTicketPageState extends State<EventTicketPage> {
 
   Widget dateSelector() {
     return SizedBox(
-      height: 60,
+      height: 80,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: dates.length,
@@ -127,12 +127,16 @@ class _EventTicketPageState extends State<EventTicketPage> {
   Widget dateChip(String date, String day, {bool isSelected = false}) {
     return Container(
       width: 60,
-      height: 60,
+      height: 80,
       margin: const EdgeInsets.only(right: 8.0),
       padding: const EdgeInsets.symmetric(vertical: 8),
       decoration: BoxDecoration(
-        color: isSelected ? Colors.purple : Colors.grey[800],
-        borderRadius: BorderRadius.circular(20),
+        color: isSelected ? Colors.purple : Colors.grey[900],
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(
+        color: Colors.grey,
+        width: 1,
+      ),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -142,7 +146,7 @@ class _EventTicketPageState extends State<EventTicketPage> {
             style: TextStyle(
               color: Colors.white,
               fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
-              fontSize: 16,
+              fontSize: 18,
             ),
           ),
           Text(
@@ -177,7 +181,7 @@ class _EventTicketPageState extends State<EventTicketPage> {
   Widget chipWidget(String label) {
     return Chip(
       label: Text(label),
-      backgroundColor: Colors.grey[800],
+      backgroundColor: Colors.grey[900],
       labelStyle: const TextStyle(color: Colors.white),
     );
   }

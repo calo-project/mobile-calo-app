@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mobile_calo_app/src/blocs/bloc.dart';
+import 'package:mobile_calo_app/src/models/model.dart';
 import 'package:mobile_calo_app/src/navigations/navigation.dart';
 import 'package:mobile_calo_app/src/presentations/screens/screen.dart';
 import 'package:mobile_calo_app/src/presentations/widgets/widget.dart';
