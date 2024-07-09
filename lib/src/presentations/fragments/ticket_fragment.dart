@@ -15,7 +15,14 @@ class _TicketFragmentState extends State<TicketFragment> {
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Config.primaryColor,
-        title: const Text('Tiket', style: TextStyle(color: Colors.white),),
+        title: const Text(
+          'Tiket',
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
       body: const SafeArea(child: EventTicketPage()),
     );
@@ -134,9 +141,9 @@ class _EventTicketPageState extends State<EventTicketPage> {
         color: isSelected ? Colors.purple : Colors.grey[900],
         borderRadius: BorderRadius.circular(10),
         border: Border.all(
-        color: Colors.grey,
-        width: 1,
-      ),
+          color: Colors.grey,
+          width: 1,
+        ),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,

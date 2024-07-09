@@ -12,7 +12,6 @@ class Routes {
   static const String detailEventScreen = '/detail_event_screen';
   static const String detailHistoryScreen = '/detail_history_screen';
 
-
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case welcomeScreen:

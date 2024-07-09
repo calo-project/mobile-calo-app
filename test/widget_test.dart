@@ -15,12 +15,9 @@ import 'package:mobile_calo_app/src/repositories/repository.dart';
 void main() async {
   await dotenv.load(fileName: ".env");
 
-  final authRepository = AuthRepository(
-    baseUrl: dotenv.env['BASE_URL']!,
-  );  
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(MyApp(authRepository: authRepository,));
+    await tester.pumpWidget(const MyApp());
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);

@@ -45,7 +45,7 @@ class SignInScreen extends StatelessWidget {
                     ),
                     textAlign: TextAlign.start,
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 10),
                   TextField(
                     controller: _emailController,
                     style: const TextStyle(color: Colors.white),
@@ -132,6 +132,7 @@ class SignInScreen extends StatelessWidget {
                       ),
                     ),
                   ),
+                  const SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -171,9 +172,9 @@ class SignInScreen extends StatelessWidget {
     final password = _passwordController.text.trim();
 
     if (email.isNotEmpty && password.isNotEmpty) {
-      context
-          .read<AuthBloc>()
-          .add(LoginEvent(email: email, password: password));
+      // context
+      //     .read<AuthBloc>()
+      //     .add(LoginEvent(email: email, password: password));
       Navigator.of(context).pushReplacementNamed(Routes.homeScreen);
     } else {
       ScaffoldMessenger.of(context).showSnackBar(

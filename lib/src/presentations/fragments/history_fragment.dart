@@ -14,6 +14,9 @@ class HistoryFragment extends StatelessWidget {
           title: const Text('Riwayat', style: TextStyle(color: Colors.white),),
           centerTitle: true,
           bottom: TabBar(
+            dividerColor: Config.primaryColor,
+            indicatorWeight: 6,
+            indicatorColor: Colors.yellow,
             unselectedLabelColor: Colors.white,
             labelColor: Colors.white,
             labelPadding: const EdgeInsets.symmetric(horizontal: 10),

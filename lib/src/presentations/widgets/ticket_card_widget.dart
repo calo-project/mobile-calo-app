@@ -31,6 +31,7 @@ class TicketCardWidget extends StatelessWidget {
           context,
           MaterialPageRoute(builder: (context) => const DetailHistoryScreen()),
         );
+
       },
       child: Container(
         decoration: BoxDecoration(

@@ -25,6 +25,7 @@ dependencies:
   ticket_widget: ^1.0.2
   shared_preferences: ^2.2.3
   bloc: ^8.1.4
+  flutter_native_splash: ^2.4.1
 
 dev_dependencies:
   flutter_test:

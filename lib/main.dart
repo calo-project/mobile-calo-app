@@ -5,44 +5,40 @@ import 'package:mobile_calo_app/src/blocs/bloc.dart';
 import 'package:mobile_calo_app/src/navigations/navigation.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:mobile_calo_app/src/repositories/repository.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
   await dotenv.load(fileName: ".env");
 
-  final authRepository = AuthRepository(
-    baseUrl: dotenv.env['BASE_URL']!,
-  );
+  // final authRepository = AuthRepository(
+  //   baseUrl: dotenv.env['BASE_URL']!,
+  // );
 
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
 
-  runApp(MyApp(authRepository: authRepository));
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  final AuthRepository authRepository;
+  const MyApp({super.key});
 
-  const MyApp({super.key, required this.authRepository});
+  static HomeBloc homeBloc = HomeBloc();
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) =>
-          AuthBloc(authRepository: authRepository)..add(CheckAuthEvent()),
-      child: MaterialApp(
-        theme: ThemeData(
-          splashColor: Colors.transparent,
-          highlightColor: Colors.transparent,
-          hoverColor: Colors.transparent,
-          bottomNavigationBarTheme: BottomNavigationBarThemeData(
-            selectedIconTheme: const IconThemeData(color: Colors.purple),
-            unselectedIconTheme: IconThemeData(color: Colors.blue[300]),
-          ),
-        ),
+    FlutterNativeSplash.remove();
+
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => homeBloc),
+      ],
+      child: const MaterialApp(
         debugShowCheckedModeBanner: false,
         initialRoute: Routes.welcomeScreen,
         onGenerateRoute: Routes.generateRoute,

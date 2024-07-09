@@ -14,6 +14,6 @@ part 'auth_blocs/auth_bloc.dart';
 part 'auth_blocs/auth_event.dart';
 part 'auth_blocs/auth_state.dart';
 
-part 'app_blocs/app_bloc.dart';
-part 'app_blocs/app_event.dart';
-part 'app_blocs/app_state.dart';
+part 'home_blocs/home_bloc.dart';
+part 'home_blocs/home_event.dart';
+part 'home_blocs/home_state.dart';

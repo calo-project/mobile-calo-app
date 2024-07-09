@@ -2,88 +2,84 @@
 
 part of 'screen.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
-  _HomeScreenState createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  int _selectedIndex = 0;
-
-  static const List<String> _widgetRoutes = <String>[
-    Routes.homeFragment,
-    Routes.ticketFragment,
-    Routes.historyFragment,
-    Routes.profileFragment,
-  ];
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
-  Widget _getIcon(String assetName, bool isSelected) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 5),
-      child: SvgPicture.asset(
-        width: 20,
-        height: 20,
-        assetName,
-        // ignore: deprecated_member_use
-        color: isSelected ? Config.iconColor : Config.fontSecunderColor,
-      ),
-    );
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Navigator(
-        key: GlobalKey<NavigatorState>(),
-        onGenerateRoute: (settings) {
-          return Routes.generateRoute(
-            RouteSettings(
-              name: _widgetRoutes[_selectedIndex],
+    return BlocBuilder<HomeBloc, HomeState>(
+      builder: (context, state) {
+        if (state is HomeDataLoaded) {
+          final destinations = [
+            getIcon('assets/icons/home-icon.svg', false),
+            getIcon('assets/icons/ticket-icon.svg', false),
+            getIcon('assets/icons/history-icon.svg', false),
+            getIcon('assets/icons/profile-icon.svg', false),
+          ];
+
+          final selectedDestinations = [
+            getIcon('assets/icons/home-icon.svg', true),
+            getIcon('assets/icons/ticket-icon.svg', true),
+            getIcon('assets/icons/history-icon.svg', true),
+            getIcon('assets/icons/profile-icon.svg', true),
+          ];
+
+          final labels = ['Beranda', 'Tiket', 'Riwayat', 'Profil'];
+
+          return Scaffold(
+            backgroundColor: Config.primaryColor,
+            body: [
+              const HomeFragment(),
+              const TicketFragment(),
+              const HistoryFragment(),
+              const ProfileFragment(),
+            ][state.selectedIndex],
+            bottomNavigationBar: CaloNavigationBar(
+              indicatorShape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              destinations: List.generate(
+                4,
+                (index) => CaloNavigationDestination(
+                  icon: destinations[index].icon,
+                  selectedIcon: selectedDestinations[index].icon,
+                  label: labels[index],
+                  labelColor: destinations[index].color,
+                  selectedLabelColor: selectedDestinations[index].color,
+                ),
+              ),
+              selectedIndex: state.selectedIndex,
+              onDestinationSelected: (index) =>
+                  MyApp.homeBloc.add(SetHomeSelectedIndex(index: index)),
             ),
           );
-        },
-      ),
-      bottomNavigationBar: SizedBox(
-        height: 70,
-        child: BottomNavigationBar(
-          elevation: 1,
-          backgroundColor: Config.primaryColor,
-          type: BottomNavigationBarType.fixed,
-          items: <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: _getIcon('assets/icons/home-icon.svg', _selectedIndex == 0),
-              label: 'Beranda',
-            ),
-            BottomNavigationBarItem(
-              icon: _getIcon('assets/icons/ticket-icon.svg', _selectedIndex == 1),
-              label: 'Tiket',
-            ),
-            BottomNavigationBarItem(
-              icon: _getIcon('assets/icons/history-icon.svg', _selectedIndex == 2),
-              label: 'Riwayat',
-            ),
-            BottomNavigationBarItem(
-              icon: _getIcon('assets/icons/profile-icon.svg', _selectedIndex == 3),
-              label: 'Akun',
-            ),
-          ],
-          currentIndex: _selectedIndex,
-          selectedItemColor: Config.iconColor,
-          unselectedItemColor: Config.fontSecunderColor,
-          onTap: _onItemTapped,
-          selectedFontSize: 16,
-          unselectedFontSize: 16,
-          showUnselectedLabels: true,
-        ),
-      ),
+        } else {
+          return const Center(child: CircularProgressIndicator());
+        }
+      },
     );
   }
+}
+
+class IconWithColor {
+  final Widget icon;
+  final Color color;
+
+  IconWithColor(this.icon, this.color);
+}
+
+IconWithColor getIcon(String assetName, bool isSelected) {
+  final color = isSelected ? Config.iconColor : Config.fontSecunderColor;
+  return IconWithColor(
+    Padding(
+      padding: const EdgeInsets.symmetric(vertical: 5),
+      child: SvgPicture.asset(
+        assetName,
+        width: 30,
+        height: 30,
+        color: color,
+      ),
+    ),
+    color,
+  );
 }
