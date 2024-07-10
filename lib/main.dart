@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mobile_calo_app/src/blocs/bloc.dart';
 import 'package:mobile_calo_app/src/navigations/navigation.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:mobile_calo_app/src/repositories/repository.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 void main() async {

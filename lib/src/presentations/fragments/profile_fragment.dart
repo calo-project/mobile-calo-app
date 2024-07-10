@@ -27,7 +27,7 @@ class ProfileFragment extends StatelessWidget {
                 children: [
                   const CircleAvatar(
                     radius: 30,
-                    backgroundImage: AssetImage('assets/profile.png'),
+                    backgroundImage: AssetImage('assets/icons/user.png'),
                   ),
                   const SizedBox(width: 16),
                   Column(
@@ -55,6 +55,11 @@ class ProfileFragment extends StatelessWidget {
                     style: TextStyle(color: Colors.white)),
                 trailing: const Icon(Icons.arrow_forward_ios),
                 onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const UpdateProfileScreen()),
+                  );
                   // Navigate to personal data page
                 },
               ),
@@ -64,6 +69,12 @@ class ProfileFragment extends StatelessWidget {
                     style: TextStyle(color: Colors.white)),
                 trailing: const Icon(Icons.arrow_forward_ios),
                 onTap: () {
+                  // TODO
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const UpdatePasswordScreen()),
+                  );
                   // Navigate to change password page
                 },
               ),
@@ -75,14 +86,25 @@ class ProfileFragment extends StatelessWidget {
                     style: TextStyle(color: Colors.white)),
                 trailing: const Icon(Icons.arrow_forward_ios),
                 onTap: () {
+                  // TODO
                   // Navigate to crypto wallet page
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const UpdateWalletScreen()));
                 },
               ),
               const SizedBox(height: 32),
               ListTile(
                 leading: const Icon(Icons.help_outline, color: Colors.white),
                 title: const Text('FAQ', style: TextStyle(color: Colors.white)),
+                trailing: const Icon(Icons.arrow_forward_ios),
                 onTap: () {
+                  // TODO
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const FAQScreen()),
+                  );
                   // Navigate to FAQ page
                 },
               ),
@@ -91,6 +113,7 @@ class ProfileFragment extends StatelessWidget {
                 title:
                     const Text('Logout', style: TextStyle(color: Colors.white)),
                 onTap: () {
+                  // TODO
                   // context.read<AuthBloc>().add(LogoutEvent());
                   Navigator.of(context)
                       .pushReplacementNamed(Routes.welcomeScreen);

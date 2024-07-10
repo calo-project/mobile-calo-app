@@ -4,7 +4,7 @@ class Routes {
   static const String welcomeScreen = '/';
   static const String homeScreen = '/home_screen';
   static const String homeFragment = '/home_fragment';
-  static const String ticketFragment = '/ticket__fragment';
+  static const String eventFragment = '/event_fragment';
   static const String historyFragment = '/history_fragment';
   static const String profileFragment = '/profile_fragment';
   static const String signInScreen = '/sign_in_screen';
@@ -24,9 +24,9 @@ class Routes {
           builder: (_) => const HomeFragment(),
           settings: settings,
         );
-      case ticketFragment:
+      case eventFragment:
         return MaterialPageRoute(
-          builder: (_) => const TicketFragment(),
+          builder: (_) => const EventFragment(),
           settings: settings,
         );
       case historyFragment:

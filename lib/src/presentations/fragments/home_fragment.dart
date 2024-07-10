@@ -41,6 +41,15 @@ class HomeFragment extends StatelessWidget {
                 ),
                 const Margin(),
                 TextField(
+                  onSubmitted: (value) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const SearchEventScreen()),
+                    );
+                  },
+
+                  // TODO
                   style:
                       Config.textStyleTitleSmall.copyWith(color: Colors.white),
                   decoration: InputDecoration(
@@ -60,7 +69,9 @@ class HomeFragment extends StatelessWidget {
                     ),
                   ),
                 ),
-                const Margin(),
+                const SizedBox(
+                  height: 10,
+                ),
                 Row(
                   children: [
                     Text('Event',
@@ -69,9 +80,18 @@ class HomeFragment extends StatelessWidget {
                     const Spacer(),
                     Row(
                       children: [
-                        Text('Lihat Semua ',
-                            style: Config.textStyleTitleSmall
-                                .copyWith(color: Config.buttonColor)),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const EventScreen()),
+                            );
+                          },
+                          child: Text('Lihat Semua ',
+                              style: Config.textStyleTitleSmall
+                                  .copyWith(color: Config.buttonColor)),
+                        ),
                         const Icon(
                           Icons.arrow_forward_ios_outlined,
                           color: Config.buttonColor,
@@ -81,7 +101,9 @@ class HomeFragment extends StatelessWidget {
                     ),
                   ],
                 ),
-                const Margin(),
+                const SizedBox(
+                  height: 10,
+                ),
                 SizedBox(
                   height: 275,
                   child: ListView.builder(

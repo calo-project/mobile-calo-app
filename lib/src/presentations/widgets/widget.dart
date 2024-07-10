@@ -2,7 +2,6 @@ import 'dart:math';
 import 'dart:ui';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:mobile_calo_app/src/navigations/navigation.dart';
 import 'package:mobile_calo_app/src/presentations/screens/screen.dart';
 import 'package:mobile_calo_app/src/utils/util.dart';
 

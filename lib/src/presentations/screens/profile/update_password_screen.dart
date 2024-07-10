@@ -1,7 +1,7 @@
 part of '../screen.dart';
 
-class UpdateProfileScreen extends StatelessWidget {
-  const UpdateProfileScreen({super.key});
+class UpdatePasswordScreen extends StatelessWidget {
+  const UpdatePasswordScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +11,7 @@ class UpdateProfileScreen extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Config.primaryColor,
         title: const Text(
-          'Update profile',
+          'Update password',
           style: TextStyle(
             color: Colors.white,
             fontSize: 24,

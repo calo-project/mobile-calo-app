@@ -47,24 +47,22 @@ class VerifiedScreen extends StatelessWidget {
               child: ListView(
                 children: const [
                   TicketCardWidget(
-                    bandName: "COLDPLAY",
-                    city: "Jakarta",
-                    venue: "GBK",
-                    time: "19.00 WIB",
-                    date: "19 Feb 2024",
-                    type: "Regular",
-                    colors: Config.buttonColor
-                  ),
+                      bandName: "COLDPLAY",
+                      city: "Jakarta",
+                      venue: "GBK",
+                      time: "19.00 WIB",
+                      date: "19 Feb 2024",
+                      type: "Regular",
+                      colors: Config.buttonColor),
                   SizedBox(height: 16),
                   TicketCardWidget(
-                    bandName: "JKT48",
-                    city: "Jakarta",
-                    venue: "JIS",
-                    time: "19.30 WIB",
-                    date: "25 Feb 2024",
-                    type: "VIP",
-                    colors: Config.buttonColor
-                  ),
+                      bandName: "JKT48",
+                      city: "Jakarta",
+                      venue: "JIS",
+                      time: "19.30 WIB",
+                      date: "25 Feb 2024",
+                      type: "VIP",
+                      colors: Config.buttonColor),
                 ],
               ),
             ),

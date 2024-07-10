@@ -1,13 +1,13 @@
 part of 'fragment.dart';
 
-class TicketFragment extends StatefulWidget {
-  const TicketFragment({super.key});
+class EventFragment extends StatefulWidget {
+  const EventFragment({super.key});
 
   @override
-  State<TicketFragment> createState() => _TicketFragmentState();
+  State<EventFragment> createState() => _EventFragmentState();
 }
 
-class _TicketFragmentState extends State<TicketFragment> {
+class _EventFragmentState extends State<EventFragment> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,7 +16,7 @@ class _TicketFragmentState extends State<TicketFragment> {
         centerTitle: true,
         backgroundColor: Config.primaryColor,
         title: const Text(
-          'Tiket',
+          'Event',
           style: TextStyle(
             color: Colors.white,
             fontSize: 24,
@@ -24,19 +24,19 @@ class _TicketFragmentState extends State<TicketFragment> {
           ),
         ),
       ),
-      body: const EventTicketPage(),
+      body: const EventEventPage(),
     );
   }
 }
 
-class EventTicketPage extends StatefulWidget {
-  const EventTicketPage({super.key});
+class EventEventPage extends StatefulWidget {
+  const EventEventPage({super.key});
 
   @override
-  _EventTicketPageState createState() => _EventTicketPageState();
+  _EventEventPageState createState() => _EventEventPageState();
 }
 
-class _EventTicketPageState extends State<EventTicketPage> {
+class _EventEventPageState extends State<EventEventPage> {
   final List<Map<String, String>> dates = [
     {'date': '18', 'day': 'Senin'},
     {'date': '19', 'day': 'Selasa'},

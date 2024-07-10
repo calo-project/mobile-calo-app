@@ -24,13 +24,13 @@ class HomeScreen extends StatelessWidget {
             getIcon('assets/icons/profile-icon.svg', true),
           ];
 
-          final labels = ['Beranda', 'Tiket', 'Riwayat', 'Profil'];
+          final labels = ['Beranda', 'Event', 'Riwayat', 'Profil'];
 
           return Scaffold(
             backgroundColor: Config.primaryColor,
             body: [
               const HomeFragment(),
-              const TicketFragment(),
+              const EventFragment(),
               const HistoryFragment(),
               const ProfileFragment(),
             ][state.selectedIndex],

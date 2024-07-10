@@ -1,7 +1,7 @@
 part of 'fragment.dart';
 
 class HistoryFragment extends StatefulWidget {
-  const HistoryFragment({Key? key}) : super(key: key);
+  const HistoryFragment({super.key});
 
   @override
   _HistoryFragmentState createState() => _HistoryFragmentState();
@@ -37,7 +37,11 @@ class _HistoryFragmentState extends State<HistoryFragment>
         backgroundColor: Config.primaryColor,
         title: const Text(
           'Riwayat',
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+          ),
         ),
         centerTitle: true,
         bottom: TabBar(
