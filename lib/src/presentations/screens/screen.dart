@@ -10,6 +10,7 @@ import 'package:mobile_calo_app/src/utils/util.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mobile_calo_app/src/presentations/widgets/widget.dart';
 import 'package:mobile_calo_app/main.dart';
+import 'package:image_picker/image_picker.dart';
 
 part 'welcome_screen.dart';
 part 'home_screen.dart';

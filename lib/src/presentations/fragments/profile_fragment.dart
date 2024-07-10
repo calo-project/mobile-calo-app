@@ -55,7 +55,7 @@ class ProfileFragment extends StatelessWidget {
                     style: TextStyle(color: Colors.white)),
                 trailing: const Icon(Icons.arrow_forward_ios),
                 onTap: () {
-                  Navigator.push(
+                  Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
                         builder: (context) => const UpdateProfileScreen()),
@@ -70,7 +70,7 @@ class ProfileFragment extends StatelessWidget {
                 trailing: const Icon(Icons.arrow_forward_ios),
                 onTap: () {
                   // TODO
-                  Navigator.push(
+                  Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
                         builder: (context) => const UpdatePasswordScreen()),
@@ -84,11 +84,13 @@ class ProfileFragment extends StatelessWidget {
                     color: Colors.white),
                 title: const Text('Wallet Crypto',
                     style: TextStyle(color: Colors.white)),
+                    subtitle: const Text('0x412...10AcpX',
+                    style: TextStyle(color: Colors.white)),
                 trailing: const Icon(Icons.arrow_forward_ios),
                 onTap: () {
                   // TODO
                   // Navigate to crypto wallet page
-                  Navigator.push(
+                  Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
                           builder: (context) => const UpdateWalletScreen()));
@@ -101,7 +103,7 @@ class ProfileFragment extends StatelessWidget {
                 trailing: const Icon(Icons.arrow_forward_ios),
                 onTap: () {
                   // TODO
-                  Navigator.push(
+                  Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(builder: (context) => const FAQScreen()),
                   );
