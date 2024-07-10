@@ -75,8 +75,8 @@ IconWithColor getIcon(String assetName, bool isSelected) {
       padding: const EdgeInsets.symmetric(vertical: 5),
       child: SvgPicture.asset(
         assetName,
-        width: 30,
-        height: 30,
+        width: 25,
+        height: 25,
         color: color,
       ),
     ),

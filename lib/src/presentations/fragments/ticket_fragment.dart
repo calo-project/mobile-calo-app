@@ -24,7 +24,7 @@ class _TicketFragmentState extends State<TicketFragment> {
           ),
         ),
       ),
-      body: const SafeArea(child: EventTicketPage()),
+      body: const EventTicketPage(),
     );
   }
 }
@@ -50,18 +50,46 @@ class _EventTicketPageState extends State<EventTicketPage> {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      padding: const EdgeInsets.all(16.0),
       children: [
         dateSelector(),
         const Margin(),
-        categoryChips(),
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 15),
+          child: Text(
+            'Kategori Event',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
         const Margin(),
-        const Text(
-          'Semua Event',
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
+        categoryConcertChips(),
+        const SizedBox(
+          height: 10,
+        ),
+        categoryShowChips(),
+        const SizedBox(
+          height: 10,
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15),
+          child: Align(
+            alignment: Alignment.centerLeft,
+            child: chipWidget('Semua Event'),
+          ),
+        ),
+        const Margin(),
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 15),
+          child: Text(
+            'Semua Event',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
         const Margin(),
@@ -72,9 +100,11 @@ class _EventTicketPageState extends State<EventTicketPage> {
             itemCount: 10,
             itemBuilder: (context, index) {
               return Padding(
-                padding: const EdgeInsets.only(right: 8.0),
+                padding: const EdgeInsets.only(left: 15),
                 child: GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, Routes.detailEventScreen);
+                  },
                   child: const EventCard(
                     imageUrl:
                         'https://miro.medium.com/v2/resize:fit:800/1*FWMTpgD_WMu-roVdHiInJA.jpeg',
@@ -91,13 +121,16 @@ class _EventTicketPageState extends State<EventTicketPage> {
         SizedBox(
           height: 275,
           child: ListView.builder(
+            reverse: true,
             scrollDirection: Axis.horizontal,
             itemCount: 10,
             itemBuilder: (context, index) {
               return Padding(
-                padding: const EdgeInsets.only(right: 8.0),
+                padding: const EdgeInsets.only(right: 15),
                 child: GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, Routes.detailEventScreen);
+                  },
                   child: const EventCard(
                     imageUrl:
                         'https://miro.medium.com/v2/resize:fit:800/1*FWMTpgD_WMu-roVdHiInJA.jpeg',
@@ -116,15 +149,18 @@ class _EventTicketPageState extends State<EventTicketPage> {
 
   Widget dateSelector() {
     return SizedBox(
-      height: 70,
+      height: 80,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: dates.length,
         itemBuilder: (context, index) {
-          return dateChip(
-            dates[index]['date']!,
-            dates[index]['day']!,
-            isSelected: index == 1,
+          return Padding(
+            padding: EdgeInsets.only(left: index == 0 ? 15.0 : 0.0),
+            child: dateChip(
+              dates[index]['date']!,
+              dates[index]['day']!,
+              isSelected: index == 1,
+            ),
           );
         },
       ),
@@ -141,7 +177,7 @@ class _EventTicketPageState extends State<EventTicketPage> {
         color: isSelected ? Colors.purple : Colors.grey[900],
         borderRadius: BorderRadius.circular(10),
         border: Border.all(
-          color: Colors.grey,
+          color: isSelected ? Colors.white : Colors.transparent,
           width: 1,
         ),
       ),
@@ -153,7 +189,7 @@ class _EventTicketPageState extends State<EventTicketPage> {
             style: TextStyle(
               color: Colors.white,
               fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
-              fontSize: 18,
+              fontSize: 20,
             ),
           ),
           Text(
@@ -161,7 +197,7 @@ class _EventTicketPageState extends State<EventTicketPage> {
             style: TextStyle(
               color: Colors.white,
               fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
-              fontSize: 12,
+              fontSize: 14,
             ),
           ),
         ],
@@ -169,27 +205,63 @@ class _EventTicketPageState extends State<EventTicketPage> {
     );
   }
 
-  Widget categoryChips() {
-    return Wrap(
-      spacing: 8.0,
-      children: [
-        chipWidget('Pop'),
-        chipWidget('Dangdut'),
-        chipWidget('Party'),
-        chipWidget('Jazz'),
-        chipWidget('Konser'),
-        chipWidget('Talk Show'),
-        chipWidget('Seminar'),
-        chipWidget('Semua Event'),
-      ],
+  Widget categoryShowChips() {
+    List<String> chipLabels = ['Talk Show', 'Seminar', 'PodTalk', 'Stand Up'];
+
+    return SizedBox(
+      height: 45,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: chipLabels.length,
+        itemBuilder: (context, index) {
+          return Padding(
+            padding: EdgeInsets.only(left: index == 0 ? 15.0 : 10.0),
+            child: chipWidget(chipLabels[index]),
+          );
+        },
+      ),
+    );
+  }
+
+  Widget categoryConcertChips() {
+    List<String> chipLabels = [
+      'Pop',
+      'Dangdut',
+      'DJ',
+      'Jazz',
+      'Rock',
+    ];
+
+    return SizedBox(
+      height: 45,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: chipLabels.length,
+        itemBuilder: (context, index) {
+          return Padding(
+            padding: EdgeInsets.only(left: index == 0 ? 15.0 : 10.0),
+            child: chipWidget(chipLabels[index]),
+          );
+        },
+      ),
     );
   }
 
   Widget chipWidget(String label) {
     return Chip(
-      label: Text(label),
+      label: Text(
+        label,
+        style: const TextStyle(
+          fontSize: 18,
+          fontWeight: FontWeight.w500,
+        ),
+      ),
       backgroundColor: Colors.grey[900],
       labelStyle: const TextStyle(color: Colors.white),
+      side: const BorderSide(color: Colors.white),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(100.0),
+      ),
     );
   }
 

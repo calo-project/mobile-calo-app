@@ -91,7 +91,10 @@ class HomeFragment extends StatelessWidget {
                       return Padding(
                         padding: const EdgeInsets.only(right: 8.0),
                         child: GestureDetector(
-                          onTap: () {Navigator.pushNamed(context, Routes.detailEventScreen);},
+                          onTap: () {
+                            Navigator.pushNamed(
+                                context, Routes.detailEventScreen);
+                          },
                           child: const EventCard(
                             imageUrl:
                                 'https://miro.medium.com/v2/resize:fit:800/1*FWMTpgD_WMu-roVdHiInJA.jpeg',
@@ -110,21 +113,25 @@ class HomeFragment extends StatelessWidget {
                         .copyWith(color: Colors.white)),
                 const SizedBox(height: 8),
                 SizedBox(
-                  height: 400,
+                  height: 420,
                   child: ListView.builder(
-                    itemBuilder: (context, index) => const RecommendationCard(
-                      imageUrl:
-                          'https://img.jakpost.net/c/2019/07/11/2019_07_11_76116_1562816477._large.jpg',
-                      eventName: 'Taylor Swift: The Eras Tour',
-                      eventLocation: 'Surabaya, Indonesia',
-                      eventDate: '19 Feb 2024',
+                    itemBuilder: (context, index) => GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, Routes.detailEventScreen);
+                      },
+                      child: const RecommendationCard(
+                        imageUrl:
+                            'https://img.jakpost.net/c/2019/07/11/2019_07_11_76116_1562816477._large.jpg',
+                        eventName: 'Taylor Swift: The Eras Tour',
+                        eventLocation: 'Surabaya, Indonesia',
+                        eventDate: '19 Feb 2024',
+                      ),
                     ),
                     itemCount: 5,
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
                   ),
                 ),
-                
               ],
             ),
           ),

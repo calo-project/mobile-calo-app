@@ -267,11 +267,11 @@ class CaloNavigationDestination extends StatelessWidget {
       ),
       buildLabel: (context) {
         final TextStyle effectiveSelectedLabelTextStyle =
-            TextStyle(color: selectedLabelColor);
+            TextStyle(color: selectedLabelColor, fontSize: 16);
         final TextStyle effectiveUnselectedLabelTextStyle =
-            TextStyle(color: labelColor);
+            TextStyle(color: labelColor, fontSize: 16);
         final TextStyle effectiveDisabledLabelTextStyle =
-            TextStyle(color: labelColor.withOpacity(0.5));
+            TextStyle(color: labelColor.withOpacity(0.5) , fontSize: 16);
 
         final TextStyle textStyle = enabled
             ? _isForwardOrCompleted(animation)

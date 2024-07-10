@@ -17,7 +17,7 @@ class VerifiedScreen extends StatelessWidget {
                   child: TextField(
                     decoration: InputDecoration(
                       hintText: 'Nama event',
-                      hintStyle: const TextStyle(color: Colors.grey),
+                      hintStyle: const TextStyle(color: Colors.white),
                       prefixIconColor: Colors.white,
                       prefixIcon: const Icon(Icons.search),
                       border: OutlineInputBorder(
@@ -31,7 +31,7 @@ class VerifiedScreen extends StatelessWidget {
                   child: TextField(
                     decoration: InputDecoration(
                       hintText: '12 Feb 2024',
-                      hintStyle: const TextStyle(color: Colors.grey),
+                      hintStyle: const TextStyle(color: Colors.white),
                       prefixIconColor: Colors.white,
                       prefixIcon: const Icon(Icons.calendar_today),
                       border: OutlineInputBorder(
