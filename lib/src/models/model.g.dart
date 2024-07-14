@@ -7,22 +7,34 @@ part of 'model.dart';
 // **************************************************************************
 
 _$UserImpl _$$UserImplFromJson(Map<String, dynamic> json) => _$UserImpl(
-      id: (json['id'] as num?)?.toInt(),
-      email: json['email'] as String,
-      email_verified_at: json['email_verified_at'] as String?,
+      id: _parseInt(json['id']),
       name: json['name'] as String?,
-      nama_pengguna: json['nama_pengguna'] as String?,
+      email: json['email'] as String?,
+      emailVerifiedAt: json['email_verified_at'] == null
+          ? null
+          : DateTime.parse(json['email_verified_at'] as String),
+      namaPengguna: json['nama_pengguna'] as String?,
+      wallet: json['wallet'] as String?,
       role: json['role'] as String?,
-      foto_profile: json['foto_profile'] as String?,
+      fotoProfile: json['foto_profile'] as String?,
+      createdAt: json['created_at'] == null
+          ? null
+          : DateTime.parse(json['created_at'] as String),
+      updateAt: json['updated_at'] == null
+          ? null
+          : DateTime.parse(json['updated_at'] as String),
     );
 
 Map<String, dynamic> _$$UserImplToJson(_$UserImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'email': instance.email,
-      'email_verified_at': instance.email_verified_at,
       'name': instance.name,
-      'nama_pengguna': instance.nama_pengguna,
+      'email': instance.email,
+      'email_verified_at': instance.emailVerifiedAt?.toIso8601String(),
+      'nama_pengguna': instance.namaPengguna,
+      'wallet': instance.wallet,
       'role': instance.role,
-      'foto_profile': instance.foto_profile,
+      'foto_profile': instance.fotoProfile,
+      'created_at': instance.createdAt?.toIso8601String(),
+      'updated_at': instance.updateAt?.toIso8601String(),
     };

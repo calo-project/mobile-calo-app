@@ -1,17 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:m_widget/m_widget.dart';
 import 'package:mobile_calo_app/src/blocs/bloc.dart';
 import 'package:mobile_calo_app/src/navigations/navigation.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:mobile_calo_app/src/presentations/screens/screen.dart';
 import 'package:mobile_calo_app/src/services/service.dart';
+import 'package:mobile_calo_app/src/utils/util.dart';
+
+final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
   await dotenv.load(fileName: ".env");
+
+  await MWidget.initialize();
 
   // final authRepository = AuthRepository(
   //   baseUrl: dotenv.env['BASE_URL']!,
@@ -22,7 +29,11 @@ void main() async {
     DeviceOrientation.portraitDown,
   ]);
 
-  await ApiClient.signInWithToken();
+  try {
+    await ApiClient.signInWithToken();
+  } catch (e) {
+    ApiClient.handleError(e);
+  }
 
   runApp(const MyApp());
 }
@@ -30,6 +41,7 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
+  static AuthenticationBloc authBloc = AuthenticationBloc();
   static HomeBloc homeBloc = HomeBloc();
 
   @override
@@ -38,12 +50,14 @@ class MyApp extends StatelessWidget {
 
     return MultiBlocProvider(
       providers: [
+        BlocProvider(create: (context) => authBloc),
         BlocProvider(create: (context) => homeBloc),
       ],
-      child: const MaterialApp(
+      child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: Routes.welcomeScreen,
+        initialRoute: currentUser == null ? Routes.welcomeScreen : Routes.homeScreen,
         onGenerateRoute: Routes.generateRoute,
+        navigatorKey: navigatorKey,
       ),
     );
   }

@@ -20,13 +20,22 @@ User _$UserFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$User {
+  @JsonKey(fromJson: _parseInt)
   int? get id => throw _privateConstructorUsedError;
-  String get email => throw _privateConstructorUsedError;
-  String? get email_verified_at => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
-  String? get nama_pengguna => throw _privateConstructorUsedError;
+  String? get email => throw _privateConstructorUsedError;
+  @JsonKey(name: 'email_verified_at')
+  DateTime? get emailVerifiedAt => throw _privateConstructorUsedError;
+  @JsonKey(name: 'nama_pengguna')
+  String? get namaPengguna => throw _privateConstructorUsedError;
+  String? get wallet => throw _privateConstructorUsedError;
   String? get role => throw _privateConstructorUsedError;
-  String? get foto_profile => throw _privateConstructorUsedError;
+  @JsonKey(name: 'foto_profile')
+  String? get fotoProfile => throw _privateConstructorUsedError;
+  @JsonKey(name: 'created_at')
+  DateTime? get createdAt => throw _privateConstructorUsedError;
+  @JsonKey(name: 'updated_at')
+  DateTime? get updateAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -39,13 +48,16 @@ abstract class $UserCopyWith<$Res> {
       _$UserCopyWithImpl<$Res, User>;
   @useResult
   $Res call(
-      {int? id,
-      String email,
-      String? email_verified_at,
+      {@JsonKey(fromJson: _parseInt) int? id,
       String? name,
-      String? nama_pengguna,
+      String? email,
+      @JsonKey(name: 'email_verified_at') DateTime? emailVerifiedAt,
+      @JsonKey(name: 'nama_pengguna') String? namaPengguna,
+      String? wallet,
       String? role,
-      String? foto_profile});
+      @JsonKey(name: 'foto_profile') String? fotoProfile,
+      @JsonKey(name: 'created_at') DateTime? createdAt,
+      @JsonKey(name: 'updated_at') DateTime? updateAt});
 }
 
 /// @nodoc
@@ -62,42 +74,57 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
   @override
   $Res call({
     Object? id = freezed,
-    Object? email = null,
-    Object? email_verified_at = freezed,
     Object? name = freezed,
-    Object? nama_pengguna = freezed,
+    Object? email = freezed,
+    Object? emailVerifiedAt = freezed,
+    Object? namaPengguna = freezed,
+    Object? wallet = freezed,
     Object? role = freezed,
-    Object? foto_profile = freezed,
+    Object? fotoProfile = freezed,
+    Object? createdAt = freezed,
+    Object? updateAt = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int?,
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      email_verified_at: freezed == email_verified_at
-          ? _value.email_verified_at
-          : email_verified_at // ignore: cast_nullable_to_non_nullable
-              as String?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      nama_pengguna: freezed == nama_pengguna
-          ? _value.nama_pengguna
-          : nama_pengguna // ignore: cast_nullable_to_non_nullable
+      email: freezed == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String?,
+      emailVerifiedAt: freezed == emailVerifiedAt
+          ? _value.emailVerifiedAt
+          : emailVerifiedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      namaPengguna: freezed == namaPengguna
+          ? _value.namaPengguna
+          : namaPengguna // ignore: cast_nullable_to_non_nullable
+              as String?,
+      wallet: freezed == wallet
+          ? _value.wallet
+          : wallet // ignore: cast_nullable_to_non_nullable
               as String?,
       role: freezed == role
           ? _value.role
           : role // ignore: cast_nullable_to_non_nullable
               as String?,
-      foto_profile: freezed == foto_profile
-          ? _value.foto_profile
-          : foto_profile // ignore: cast_nullable_to_non_nullable
+      fotoProfile: freezed == fotoProfile
+          ? _value.fotoProfile
+          : fotoProfile // ignore: cast_nullable_to_non_nullable
               as String?,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      updateAt: freezed == updateAt
+          ? _value.updateAt
+          : updateAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ) as $Val);
   }
 }
@@ -110,13 +137,16 @@ abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {int? id,
-      String email,
-      String? email_verified_at,
+      {@JsonKey(fromJson: _parseInt) int? id,
       String? name,
-      String? nama_pengguna,
+      String? email,
+      @JsonKey(name: 'email_verified_at') DateTime? emailVerifiedAt,
+      @JsonKey(name: 'nama_pengguna') String? namaPengguna,
+      String? wallet,
       String? role,
-      String? foto_profile});
+      @JsonKey(name: 'foto_profile') String? fotoProfile,
+      @JsonKey(name: 'created_at') DateTime? createdAt,
+      @JsonKey(name: 'updated_at') DateTime? updateAt});
 }
 
 /// @nodoc
@@ -130,42 +160,57 @@ class __$$UserImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
-    Object? email = null,
-    Object? email_verified_at = freezed,
     Object? name = freezed,
-    Object? nama_pengguna = freezed,
+    Object? email = freezed,
+    Object? emailVerifiedAt = freezed,
+    Object? namaPengguna = freezed,
+    Object? wallet = freezed,
     Object? role = freezed,
-    Object? foto_profile = freezed,
+    Object? fotoProfile = freezed,
+    Object? createdAt = freezed,
+    Object? updateAt = freezed,
   }) {
     return _then(_$UserImpl(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int?,
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      email_verified_at: freezed == email_verified_at
-          ? _value.email_verified_at
-          : email_verified_at // ignore: cast_nullable_to_non_nullable
-              as String?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      nama_pengguna: freezed == nama_pengguna
-          ? _value.nama_pengguna
-          : nama_pengguna // ignore: cast_nullable_to_non_nullable
+      email: freezed == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String?,
+      emailVerifiedAt: freezed == emailVerifiedAt
+          ? _value.emailVerifiedAt
+          : emailVerifiedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      namaPengguna: freezed == namaPengguna
+          ? _value.namaPengguna
+          : namaPengguna // ignore: cast_nullable_to_non_nullable
+              as String?,
+      wallet: freezed == wallet
+          ? _value.wallet
+          : wallet // ignore: cast_nullable_to_non_nullable
               as String?,
       role: freezed == role
           ? _value.role
           : role // ignore: cast_nullable_to_non_nullable
               as String?,
-      foto_profile: freezed == foto_profile
-          ? _value.foto_profile
-          : foto_profile // ignore: cast_nullable_to_non_nullable
+      fotoProfile: freezed == fotoProfile
+          ? _value.fotoProfile
+          : fotoProfile // ignore: cast_nullable_to_non_nullable
               as String?,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      updateAt: freezed == updateAt
+          ? _value.updateAt
+          : updateAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ));
   }
 }
@@ -174,35 +219,50 @@ class __$$UserImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$UserImpl implements _User {
   const _$UserImpl(
-      {this.id,
-      required this.email,
-      this.email_verified_at,
+      {@JsonKey(fromJson: _parseInt) this.id,
       this.name,
-      this.nama_pengguna,
+      this.email,
+      @JsonKey(name: 'email_verified_at') this.emailVerifiedAt,
+      @JsonKey(name: 'nama_pengguna') this.namaPengguna,
+      this.wallet,
       this.role,
-      this.foto_profile});
+      @JsonKey(name: 'foto_profile') this.fotoProfile,
+      @JsonKey(name: 'created_at') this.createdAt,
+      @JsonKey(name: 'updated_at') this.updateAt});
 
   factory _$UserImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserImplFromJson(json);
 
   @override
+  @JsonKey(fromJson: _parseInt)
   final int? id;
-  @override
-  final String email;
-  @override
-  final String? email_verified_at;
   @override
   final String? name;
   @override
-  final String? nama_pengguna;
+  final String? email;
+  @override
+  @JsonKey(name: 'email_verified_at')
+  final DateTime? emailVerifiedAt;
+  @override
+  @JsonKey(name: 'nama_pengguna')
+  final String? namaPengguna;
+  @override
+  final String? wallet;
   @override
   final String? role;
   @override
-  final String? foto_profile;
+  @JsonKey(name: 'foto_profile')
+  final String? fotoProfile;
+  @override
+  @JsonKey(name: 'created_at')
+  final DateTime? createdAt;
+  @override
+  @JsonKey(name: 'updated_at')
+  final DateTime? updateAt;
 
   @override
   String toString() {
-    return 'User(id: $id, email: $email, email_verified_at: $email_verified_at, name: $name, nama_pengguna: $nama_pengguna, role: $role, foto_profile: $foto_profile)';
+    return 'User(id: $id, name: $name, email: $email, emailVerifiedAt: $emailVerifiedAt, namaPengguna: $namaPengguna, wallet: $wallet, role: $role, fotoProfile: $fotoProfile, createdAt: $createdAt, updateAt: $updateAt)';
   }
 
   @override
@@ -211,21 +271,26 @@ class _$UserImpl implements _User {
         (other.runtimeType == runtimeType &&
             other is _$UserImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.email, email) || other.email == email) &&
-            (identical(other.email_verified_at, email_verified_at) ||
-                other.email_verified_at == email_verified_at) &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.nama_pengguna, nama_pengguna) ||
-                other.nama_pengguna == nama_pengguna) &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.emailVerifiedAt, emailVerifiedAt) ||
+                other.emailVerifiedAt == emailVerifiedAt) &&
+            (identical(other.namaPengguna, namaPengguna) ||
+                other.namaPengguna == namaPengguna) &&
+            (identical(other.wallet, wallet) || other.wallet == wallet) &&
             (identical(other.role, role) || other.role == role) &&
-            (identical(other.foto_profile, foto_profile) ||
-                other.foto_profile == foto_profile));
+            (identical(other.fotoProfile, fotoProfile) ||
+                other.fotoProfile == fotoProfile) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
+            (identical(other.updateAt, updateAt) ||
+                other.updateAt == updateAt));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, email, email_verified_at,
-      name, nama_pengguna, role, foto_profile);
+  int get hashCode => Object.hash(runtimeType, id, name, email, emailVerifiedAt,
+      namaPengguna, wallet, role, fotoProfile, createdAt, updateAt);
 
   @JsonKey(ignore: true)
   @override
@@ -243,30 +308,45 @@ class _$UserImpl implements _User {
 
 abstract class _User implements User {
   const factory _User(
-      {final int? id,
-      required final String email,
-      final String? email_verified_at,
+      {@JsonKey(fromJson: _parseInt) final int? id,
       final String? name,
-      final String? nama_pengguna,
+      final String? email,
+      @JsonKey(name: 'email_verified_at') final DateTime? emailVerifiedAt,
+      @JsonKey(name: 'nama_pengguna') final String? namaPengguna,
+      final String? wallet,
       final String? role,
-      final String? foto_profile}) = _$UserImpl;
+      @JsonKey(name: 'foto_profile') final String? fotoProfile,
+      @JsonKey(name: 'created_at') final DateTime? createdAt,
+      @JsonKey(name: 'updated_at') final DateTime? updateAt}) = _$UserImpl;
 
   factory _User.fromJson(Map<String, dynamic> json) = _$UserImpl.fromJson;
 
   @override
+  @JsonKey(fromJson: _parseInt)
   int? get id;
-  @override
-  String get email;
-  @override
-  String? get email_verified_at;
   @override
   String? get name;
   @override
-  String? get nama_pengguna;
+  String? get email;
+  @override
+  @JsonKey(name: 'email_verified_at')
+  DateTime? get emailVerifiedAt;
+  @override
+  @JsonKey(name: 'nama_pengguna')
+  String? get namaPengguna;
+  @override
+  String? get wallet;
   @override
   String? get role;
   @override
-  String? get foto_profile;
+  @JsonKey(name: 'foto_profile')
+  String? get fotoProfile;
+  @override
+  @JsonKey(name: 'created_at')
+  DateTime? get createdAt;
+  @override
+  @JsonKey(name: 'updated_at')
+  DateTime? get updateAt;
   @override
   @JsonKey(ignore: true)
   _$$UserImplCopyWith<_$UserImpl> get copyWith =>

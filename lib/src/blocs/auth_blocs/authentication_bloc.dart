@@ -23,20 +23,22 @@ class AuthenticationBloc
 
     on<SignInPressed>((event, emit) async {
       if (_textControllerEmailSignIn.text.trim().isEmpty) {
-        NavigationHelper.clearSnackBars();
-        NavigationHelper.showSnackBar(
-            const SnackBar(content: Text('Email masih kosong')));
+        debugPrint('Email masih kosong');
+        // NavigationHelper.clearSnackBars();
+        // NavigationHelper.showSnackBar(
+        //     const SnackBar(content: Text('Email masih kosong')));
         return;
       }
 
       if (_textControllerPasswordSignIn.text.trim().isEmpty) {
-        NavigationHelper.clearSnackBars();
-        NavigationHelper.showSnackBar(
-            const SnackBar(content: Text('Password masih kosong')));
+        debugPrint('Password masih kosong');
+        // NavigationHelper.clearSnackBars();
+        // NavigationHelper.showSnackBar(
+        //     const SnackBar(content: Text('Password masih kosong')));
         return;
       }
 
-      showLoadingDialog();
+      // showLoadingDialog();
 
       try {
         await ApiClient.signIn(
@@ -44,15 +46,18 @@ class AuthenticationBloc
           password: _textControllerPasswordSignIn.text.trim(),
         );
       } catch (e) {
-        NavigationHelper.back();
+        debugPrint(e.toString());
+        // NavigationHelper.back();
         await ApiClient.handleError(e);
         return;
       }
 
-      while (NavigationHelper.canGoBack()) {
-        NavigationHelper.back();
-      }
-      NavigationHelper.toReplacement(
+      // while (NavigationHelper.canGoBack()) {
+      //   NavigationHelper.back();
+      // }
+
+      // debugPrint(currentUser.toString());
+      navigatorKey.currentState?.pushReplacement(
           MaterialPageRoute(builder: (context) => const HomeScreen()));
 
       await Future.delayed(Durations.medium3);
@@ -61,7 +66,7 @@ class AuthenticationBloc
 
     on<SignUpPressed>((event, emit) async {
       if (_textControllerUsernameSignUp.text.trim().isEmpty) {
-        NavigationHelper.clearSnackBars();
+        // NavigationHelper.clearSnackBars();
         // NavigationHelper.showSnackBar(SnackBar(
         //     content: Text(
         //         '${event == UserRole.remaja ? 'Username' : 'Nama Lengkap'} masih kosong')));
@@ -69,37 +74,38 @@ class AuthenticationBloc
       }
 
       if (_textControllerNameSignUp.text.trim().isEmpty) {
-        NavigationHelper.clearSnackBars();
-        NavigationHelper.showSnackBar(
-            const SnackBar(content: Text('Nama masih kosong')));
+        // NavigationHelper.clearSnackBars();
+        // NavigationHelper.showSnackBar(
+        //     const SnackBar(content: Text('Nama masih kosong')));
         return;
       }
 
       if (_textControllerEmailSignUp.text.trim().isEmpty) {
-        NavigationHelper.clearSnackBars();
-        NavigationHelper.showSnackBar(
-            const SnackBar(content: Text('Email masih kosong')));
+        // NavigationHelper.clearSnackBars();
+        // NavigationHelper.showSnackBar(
+        //     const SnackBar(content: Text('Email masih kosong')));
         return;
       }
 
       if (_textControllerPasswordSignUp.text.trim().isEmpty) {
-        NavigationHelper.clearSnackBars();
-        NavigationHelper.showSnackBar(
-            const SnackBar(content: Text('Password masih kosong')));
+        // NavigationHelper.clearSnackBars();
+        // NavigationHelper.showSnackBar(
+        // const SnackBar(content: Text('Password masih kosong')));
         return;
       }
 
       if (_textControllerPasswordConfirmationSignUp.text.trim().isEmpty) {
-        NavigationHelper.clearSnackBars();
-        NavigationHelper.showSnackBar(
-            const SnackBar(content: Text('Konfirmasi Password masih kosong')));
+        // NavigationHelper.clearSnackBars();
+        // NavigationHelper.showSnackBar(
+        // const SnackBar(content: Text('Konfirmasi Password masih kosong')));
         return;
       }
 
       showLoadingDialog();
 
       try {
-        await ApiClient.post('/customer/register',
+        await ApiClient.post(
+          '/user/register',
           body: {
             'name': _textControllerNameSignUp.text.trim(),
             'email': _textControllerEmailSignUp.text.trim(),
@@ -110,16 +116,16 @@ class AuthenticationBloc
           ignoreAuthorization: true,
         );
       } catch (e) {
-        NavigationHelper.back();
+        // NavigationHelper.back();
         await ApiClient.handleError(e);
         return;
       }
 
-      NavigationHelper.back();
-      NavigationHelper.back();
-      NavigationHelper.back();
-      NavigationHelper.toReplacement(
-          MaterialPageRoute(builder: (context) => const HomeScreen()));
+      // NavigationHelper.back();
+      // NavigationHelper.back();
+      // NavigationHelper.back();
+      // NavigationHelper.toReplacement(
+      //     MaterialPageRoute(builder: (context) => const HomeScreen()));
 
       await Future.delayed(Durations.medium3);
       _setStateToInitial();

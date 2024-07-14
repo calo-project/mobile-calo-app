@@ -6,4 +6,5 @@ part 'config.dart';
 // part 'show_confirmation_dialog.dart';
 // part 'slide_page_route.dart';
 
+const keyToken = 'token';
 User? currentUser;

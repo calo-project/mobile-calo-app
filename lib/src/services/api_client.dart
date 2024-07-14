@@ -1,9 +1,8 @@
 part of 'service.dart';
 
 class ApiClient {
-  static String get baseUrl => kDebugMode
-      ? dotenv.env['BASE_URL_DEV']!
-      : dotenv.env['BASE_URL_PROD']!;
+  static String get baseUrl =>
+      kDebugMode ? dotenv.env['BASE_URL_DEV']! : dotenv.env['BASE_URL_PROD']!;
 
   static const String _keyToken = 'token';
   static const String _keyCurrentUser = 'current_user';
@@ -121,7 +120,7 @@ class ApiClient {
     required String password,
   }) async {
     dynamic response = await post(
-      '/api/login',
+      '/user/login',
       body: {
         'email': email,
         'password': password,
@@ -129,9 +128,23 @@ class ApiClient {
       ignoreAuthorization: true,
     );
 
+    currentUser = User.fromJson(response['data']);
+    if (kDebugMode) {
+      print(currentUser);
+    }
+
+    if (currentUser == null) {
+      if (kDebugMode) {
+        print('Gagal Parse');
+      }
+    }
+    // debugPrint(response);
+    // debugPrint(response['token']);
+
     String token = response['token'];
 
-    currentUser = User.fromJson(response['user']);
+    // currentUser = User.fromJson(response['data'] as Map<String, dynamic>);
+
 
     SharedPreferences sharedPref = await SharedPreferences.getInstance();
 
@@ -163,7 +176,7 @@ class ApiClient {
 
   Future<User> getUserFromToken(String token) async {
     final response = await http.get(
-      Uri.parse('$baseUrl/logged'),
+      Uri.parse('$baseUrl/user/logged'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Authorization': 'Bearer $token',
@@ -196,20 +209,26 @@ class ApiClient {
 
     currentUser = null;
 
-    while (NavigationHelper.canGoBack()) {
-      NavigationHelper.back();
-    }
-    NavigationHelper.toReplacement(
-        MaterialPageRoute(builder: (context) => const WelcomeScreen()));
+    // while (NavigationHelper.canGoBack()) {
+    //   NavigationHelper.back();
+    // }
+    // NavigationHelper.toReplacement(
+    //     MaterialPageRoute(builder: (context) => const WelcomeScreen()));
   }
 
   static Future<bool> signInWithToken() async {
     SharedPreferences sharedPref = await SharedPreferences.getInstance();
+    final token = sharedPref.getString(_keyToken);
+    final currentUserJson = sharedPref.getString(_keyCurrentUser);
 
-    if (sharedPref.getString(_keyToken) == null) return false;
+    if (token == null || currentUserJson == null) return false;
 
-    currentUser =
-        User.fromJson(jsonDecode(sharedPref.getString(_keyCurrentUser)!));
+    currentUser = User.fromJson(jsonDecode(currentUserJson));
+
+    if (currentUser == null) {
+      debugPrint('Gagal parse current user');
+      throw 'Failed to parse current user';
+    }
 
     try {
       await getMe();
@@ -225,7 +244,9 @@ class ApiClient {
   }
 
   static Future<void> getMe() async {
-    dynamic response = await get('/api/me', ignoreAuthorization: false);
+    dynamic response = await get('/user/logged', ignoreAuthorization: false);
+
+    // debugPrint(response);
 
     if (response is String &&
         (response.contains('<!doctype html>') ||
@@ -289,22 +310,24 @@ class ApiClient {
 
   static Future<void> handleError(Object e) async {
     if (e is String && e == 'Session is expired') {
-      while (NavigationHelper.canGoBack()) {
-        NavigationHelper.back();
-      }
-      NavigationHelper.toReplacement(
-          MaterialPageRoute(builder: (context) => const WelcomeScreen()));
-      return await showInformationDialog('Sesi Anda telah berakhir');
+      // while (NavigationHelper.canGoBack()) {
+      //   NavigationHelper.back();
+      // }
+      // NavigationHelper.toReplacement(
+      //     MaterialPageRoute(builder: (context) => const WelcomeScreen()));
+      // return await showInformationDialog('Sesi Anda telah berakhir');
+      debugPrint('Sesi anda telah berkahir');
+      return;
     }
 
     if (e is Map && e['message'] != null) {
-      return showErrorDialog(e['message'].toString());
+      return debugPrint(e['message'].toString());
     }
 
     if (e is FormatException) {
       return showErrorDialog(e.source);
     }
 
-    return showErrorDialog(e.toString());
+    return debugPrint(e.toString());
   }
 }
