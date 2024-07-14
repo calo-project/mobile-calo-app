@@ -46,7 +46,7 @@ class Routes {
         );
       case signInScreen:
         return MaterialPageRoute(
-          builder: (_) => SignInScreen(),
+          builder: (_) => const SignInScreen(),
           settings: settings,
         );
       case detailEventScreen:
@@ -75,6 +75,10 @@ class Routes {
         );
     }
   }
+}
+
+void navigatePushReplacement(String newRouteName) {
+  navigatorKey.currentState?.pushReplacementNamed(newRouteName);
 }
 
 void navigateAndRemoveUntil(BuildContext context, String newRouteName) {

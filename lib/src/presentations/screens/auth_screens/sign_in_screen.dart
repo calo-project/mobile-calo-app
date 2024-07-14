@@ -7,6 +7,10 @@ class SignInScreen extends StatelessWidget {
     return BlocBuilder<AuthenticationBloc, AuthenticationState>(
       builder: (context, state) {
         if (state is AuthenticationDataLoaded) {
+          if(kDebugMode){
+            state.textControllerEmailSignIn.text = 'altamisatmaja@gmail.com';
+            state.textControllerPasswordSignIn.text = 'bismillah';
+          }
           return Scaffold(
             appBar: AppBar(
               centerTitle: true,

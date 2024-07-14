@@ -46,7 +46,7 @@ class AuthenticationBloc
           password: _textControllerPasswordSignIn.text.trim(),
         );
       } catch (e) {
-        debugPrint(e.toString());
+        // debugPrint(e.toString());
         // NavigationHelper.back();
         await ApiClient.handleError(e);
         return;
@@ -57,8 +57,7 @@ class AuthenticationBloc
       // }
 
       // debugPrint(currentUser.toString());
-      navigatorKey.currentState?.pushReplacement(
-          MaterialPageRoute(builder: (context) => const HomeScreen()));
+      navigatePushReplacement(Routes.homeScreen);
 
       await Future.delayed(Durations.medium3);
       _setStateToInitial();

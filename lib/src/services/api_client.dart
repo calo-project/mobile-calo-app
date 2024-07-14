@@ -145,7 +145,6 @@ class ApiClient {
 
     // currentUser = User.fromJson(response['data'] as Map<String, dynamic>);
 
-
     SharedPreferences sharedPref = await SharedPreferences.getInstance();
 
     await sharedPref.setString(_keyToken, token);
@@ -192,7 +191,14 @@ class ApiClient {
 
   static Future<void> signOut() async {
     try {
-      await post('/api/logout');
+      dynamic response = await post('/user/logout');
+      if(kDebugMode){
+        response['status'];
+      }
+      if (response['status'] == 'success') {
+        navigatePushReplacement(Routes.welcomeScreen);
+      }
+      return;
     } catch (e) {
       // Ignored, really
     }

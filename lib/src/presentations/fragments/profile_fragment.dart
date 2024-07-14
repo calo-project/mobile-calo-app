@@ -117,8 +117,7 @@ class ProfileFragment extends StatelessWidget {
                 onTap: () {
                   // TODO
                   // context.read<AuthBloc>().add(LogoutEvent());
-                  Navigator.of(context)
-                      .pushReplacementNamed(Routes.welcomeScreen);
+                  ApiClient.signOut();
                 },
               ),
             ],
