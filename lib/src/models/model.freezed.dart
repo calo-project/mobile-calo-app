@@ -23,6 +23,7 @@ mixin _$User {
   int? get id => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   String? get email_verified_at => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
   String? get nama_pengguna => throw _privateConstructorUsedError;
   String? get role => throw _privateConstructorUsedError;
   String? get foto_profile => throw _privateConstructorUsedError;
@@ -41,6 +42,7 @@ abstract class $UserCopyWith<$Res> {
       {int? id,
       String email,
       String? email_verified_at,
+      String? name,
       String? nama_pengguna,
       String? role,
       String? foto_profile});
@@ -62,6 +64,7 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
     Object? id = freezed,
     Object? email = null,
     Object? email_verified_at = freezed,
+    Object? name = freezed,
     Object? nama_pengguna = freezed,
     Object? role = freezed,
     Object? foto_profile = freezed,
@@ -78,6 +81,10 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
       email_verified_at: freezed == email_verified_at
           ? _value.email_verified_at
           : email_verified_at // ignore: cast_nullable_to_non_nullable
+              as String?,
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String?,
       nama_pengguna: freezed == nama_pengguna
           ? _value.nama_pengguna
@@ -106,6 +113,7 @@ abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
       {int? id,
       String email,
       String? email_verified_at,
+      String? name,
       String? nama_pengguna,
       String? role,
       String? foto_profile});
@@ -124,6 +132,7 @@ class __$$UserImplCopyWithImpl<$Res>
     Object? id = freezed,
     Object? email = null,
     Object? email_verified_at = freezed,
+    Object? name = freezed,
     Object? nama_pengguna = freezed,
     Object? role = freezed,
     Object? foto_profile = freezed,
@@ -140,6 +149,10 @@ class __$$UserImplCopyWithImpl<$Res>
       email_verified_at: freezed == email_verified_at
           ? _value.email_verified_at
           : email_verified_at // ignore: cast_nullable_to_non_nullable
+              as String?,
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String?,
       nama_pengguna: freezed == nama_pengguna
           ? _value.nama_pengguna
@@ -164,6 +177,7 @@ class _$UserImpl implements _User {
       {this.id,
       required this.email,
       this.email_verified_at,
+      this.name,
       this.nama_pengguna,
       this.role,
       this.foto_profile});
@@ -178,6 +192,8 @@ class _$UserImpl implements _User {
   @override
   final String? email_verified_at;
   @override
+  final String? name;
+  @override
   final String? nama_pengguna;
   @override
   final String? role;
@@ -186,7 +202,7 @@ class _$UserImpl implements _User {
 
   @override
   String toString() {
-    return 'User(id: $id, email: $email, email_verified_at: $email_verified_at, nama_pengguna: $nama_pengguna, role: $role, foto_profile: $foto_profile)';
+    return 'User(id: $id, email: $email, email_verified_at: $email_verified_at, name: $name, nama_pengguna: $nama_pengguna, role: $role, foto_profile: $foto_profile)';
   }
 
   @override
@@ -198,6 +214,7 @@ class _$UserImpl implements _User {
             (identical(other.email, email) || other.email == email) &&
             (identical(other.email_verified_at, email_verified_at) ||
                 other.email_verified_at == email_verified_at) &&
+            (identical(other.name, name) || other.name == name) &&
             (identical(other.nama_pengguna, nama_pengguna) ||
                 other.nama_pengguna == nama_pengguna) &&
             (identical(other.role, role) || other.role == role) &&
@@ -208,7 +225,7 @@ class _$UserImpl implements _User {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, email, email_verified_at,
-      nama_pengguna, role, foto_profile);
+      name, nama_pengguna, role, foto_profile);
 
   @JsonKey(ignore: true)
   @override
@@ -229,6 +246,7 @@ abstract class _User implements User {
       {final int? id,
       required final String email,
       final String? email_verified_at,
+      final String? name,
       final String? nama_pengguna,
       final String? role,
       final String? foto_profile}) = _$UserImpl;
@@ -241,6 +259,8 @@ abstract class _User implements User {
   String get email;
   @override
   String? get email_verified_at;
+  @override
+  String? get name;
   @override
   String? get nama_pengguna;
   @override

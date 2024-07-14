@@ -27,7 +27,7 @@ class TicketCardWidget extends StatelessWidget {
         if (kDebugMode) {
           print("Button clicked!");
         }
-        Navigator.push(
+        Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => const DetailHistoryScreen()),
         );

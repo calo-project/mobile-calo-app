@@ -57,7 +57,7 @@ class WelcomeScreen extends StatelessWidget {
                     if (kDebugMode) {
                       print("Button clicked!");
                     }
-                    Navigator.push(
+                    Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(builder: (context) => SignInScreen()),
                     );

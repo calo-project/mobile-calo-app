@@ -11,6 +11,7 @@ class User with _$User {
     int? id,
     required String email,
     String? email_verified_at,
+    String? name,
     String? nama_pengguna,
     String? role,
     String? foto_profile,

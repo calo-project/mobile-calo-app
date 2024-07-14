@@ -5,6 +5,7 @@ import 'package:mobile_calo_app/src/blocs/bloc.dart';
 import 'package:mobile_calo_app/src/navigations/navigation.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:mobile_calo_app/src/services/service.dart';
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -20,6 +21,8 @@ void main() async {
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
+
+  await ApiClient.signInWithToken();
 
   runApp(const MyApp());
 }

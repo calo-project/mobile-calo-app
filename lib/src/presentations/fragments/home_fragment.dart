@@ -42,7 +42,7 @@ class HomeFragment extends StatelessWidget {
                 const Margin(),
                 TextField(
                   onSubmitted: (value) {
-                    Navigator.push(
+                    Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
                           builder: (context) => const SearchEventScreen()),
@@ -82,7 +82,7 @@ class HomeFragment extends StatelessWidget {
                       children: [
                         TextButton(
                           onPressed: () {
-                            Navigator.push(
+                            Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => const EventScreen()),

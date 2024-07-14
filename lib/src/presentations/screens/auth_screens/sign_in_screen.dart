@@ -172,10 +172,7 @@ class SignInScreen extends StatelessWidget {
     final password = _passwordController.text.trim();
 
     if (email.isNotEmpty && password.isNotEmpty) {
-      // context
-      //     .read<AuthBloc>()
-      //     .add(LoginEvent(email: email, password: password));
-      Navigator.of(context).pushReplacementNamed(Routes.homeScreen);
+      // Navigator.of(context).pushReplacementNamed(Routes.homeScreen);
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(

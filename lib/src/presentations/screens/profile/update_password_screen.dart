@@ -20,7 +20,10 @@ class UpdatePasswordScreen extends StatelessWidget {
         ),
         leading: IconButton(
             onPressed: () {
-              Navigator.pop(context);
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const HomeScreen()),
+              );
             },
             icon: const Icon(
               size: 35,

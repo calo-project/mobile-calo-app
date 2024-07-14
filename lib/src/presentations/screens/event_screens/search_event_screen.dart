@@ -35,7 +35,7 @@ class SearchEventScreen extends StatelessWidget {
             children: [
               TextField(
                 onSubmitted: (value) {
-                  Navigator.push(
+                  Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
                         builder: (context) => const SearchEventScreen()),

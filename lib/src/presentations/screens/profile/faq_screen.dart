@@ -20,7 +20,10 @@ class FAQScreen extends StatelessWidget {
         ),
         leading: IconButton(
           onPressed: () {
-            Navigator.pop(context);
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => const HomeScreen()),
+            );
           },
           icon: const Icon(
             Icons.chevron_left,
