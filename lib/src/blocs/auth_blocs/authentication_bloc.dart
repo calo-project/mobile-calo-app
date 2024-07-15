@@ -117,6 +117,7 @@ class AuthenticationBloc
       // NavigationHelper.back();
       // NavigationHelper.toReplacement(
       //     MaterialPageRoute(builder: (context) => const HomeScreen()));
+      navigatePushReplacement(Routes.homeScreen);
 
       await Future.delayed(Durations.medium3);
       _setStateToInitial();
