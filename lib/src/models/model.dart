@@ -10,6 +10,7 @@ bool? _parseBool(dynamic data) => data is int? && data != null
     : data is bool
         ? data
         : null;
+        
 int? _parseInt(dynamic value) => value is String? && value != null
     ? int.tryParse(value)
     : value is int

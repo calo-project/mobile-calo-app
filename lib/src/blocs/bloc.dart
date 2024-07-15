@@ -7,10 +7,8 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:http/http.dart' as http;
 import 'package:mobile_calo_app/src/navigations/navigation.dart';
-import 'package:mobile_calo_app/src/presentations/screens/screen.dart';
 import 'package:mobile_calo_app/src/services/service.dart';
 import 'package:m_widget/m_widget.dart';
-import 'package:mobile_calo_app/src/utils/util.dart';
 
 part 'user_blocs/user_bloc.dart';
 part 'user_blocs/user_event.dart';

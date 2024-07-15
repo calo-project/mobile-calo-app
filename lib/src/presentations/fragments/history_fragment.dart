@@ -15,19 +15,12 @@ class _HistoryFragmentState extends State<HistoryFragment>
   void initState() {
     super.initState();
     _tabController = TabController(length: 2, vsync: this);
-    _tabController.addListener(_handleTabSelection);
   }
 
   @override
   void dispose() {
     _tabController.dispose();
     super.dispose();
-  }
-
-  void _handleTabSelection() {
-    setState(() {
-      // TODO? idk?
-    });
   }
 
   @override

@@ -6,7 +6,6 @@ abstract class AuthenticationState {}
 class AuthenticationDataLoaded extends AuthenticationState {
   AuthenticationDataLoaded({
     required this.focusNodePasswordConfirmation,
-    required this.textControllerUsernameSignUp,
     required this.textControllerNameSignup,
     required this.textControllerEmailSignUp,
     required this.textControllerPasswordSignUp,
@@ -19,8 +18,7 @@ class AuthenticationDataLoaded extends AuthenticationState {
   });
 
   final FocusNode focusNodePasswordConfirmation;
-
-  final TextEditingController textControllerUsernameSignUp;
+  
   final TextEditingController textControllerNameSignup;
   final TextEditingController textControllerEmailSignUp;
   final TextEditingController textControllerPasswordSignUp;

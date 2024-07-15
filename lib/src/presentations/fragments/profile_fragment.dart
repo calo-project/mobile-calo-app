@@ -60,7 +60,6 @@ class ProfileFragment extends StatelessWidget {
                     MaterialPageRoute(
                         builder: (context) => const UpdateProfileScreen()),
                   );
-                  // Navigate to personal data page
                 },
               ),
               ListTile(
@@ -69,13 +68,11 @@ class ProfileFragment extends StatelessWidget {
                     style: TextStyle(color: Colors.white)),
                 trailing: const Icon(Icons.arrow_forward_ios),
                 onTap: () {
-                  // TODO
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
                         builder: (context) => const UpdatePasswordScreen()),
                   );
-                  // Navigate to change password page
                 },
               ),
               const SizedBox(height: 32),
@@ -84,12 +81,10 @@ class ProfileFragment extends StatelessWidget {
                     color: Colors.white),
                 title: const Text('Wallet Crypto',
                     style: TextStyle(color: Colors.white)),
-                    subtitle: const Text('0x412...10AcpX',
+                subtitle: const Text('0x412...10AcpX',
                     style: TextStyle(color: Colors.white)),
                 trailing: const Icon(Icons.arrow_forward_ios),
                 onTap: () {
-                  // TODO
-                  // Navigate to crypto wallet page
                   Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
@@ -102,12 +97,10 @@ class ProfileFragment extends StatelessWidget {
                 title: const Text('FAQ', style: TextStyle(color: Colors.white)),
                 trailing: const Icon(Icons.arrow_forward_ios),
                 onTap: () {
-                  // TODO
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(builder: (context) => const FAQScreen()),
                   );
-                  // Navigate to FAQ page
                 },
               ),
               ListTile(
@@ -115,8 +108,6 @@ class ProfileFragment extends StatelessWidget {
                 title:
                     const Text('Logout', style: TextStyle(color: Colors.white)),
                 onTap: () {
-                  // TODO
-                  // context.read<AuthBloc>().add(LogoutEvent());
                   ApiClient.signOut();
                 },
               ),

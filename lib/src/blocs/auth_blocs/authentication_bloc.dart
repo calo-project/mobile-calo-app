@@ -64,14 +64,6 @@ class AuthenticationBloc
     });
 
     on<SignUpPressed>((event, emit) async {
-      if (_textControllerUsernameSignUp.text.trim().isEmpty) {
-        // NavigationHelper.clearSnackBars();
-        // NavigationHelper.showSnackBar(SnackBar(
-        //     content: Text(
-        //         '${event == UserRole.remaja ? 'Username' : 'Nama Lengkap'} masih kosong')));
-        return;
-      }
-
       if (_textControllerNameSignUp.text.trim().isEmpty) {
         // NavigationHelper.clearSnackBars();
         // NavigationHelper.showSnackBar(
@@ -100,13 +92,13 @@ class AuthenticationBloc
         return;
       }
 
-      showLoadingDialog();
+      // showLoadingDialog();
 
       try {
         await ApiClient.post(
           '/user/register',
           body: {
-            'name': _textControllerNameSignUp.text.trim(),
+            'nama_pengguna': _textControllerNameSignUp.text.trim(),
             'email': _textControllerEmailSignUp.text.trim(),
             'password': _textControllerPasswordSignUp.text.trim(),
             'konfirmasi_password':
@@ -132,9 +124,6 @@ class AuthenticationBloc
   }
 
   static final FocusNode _focusNodePasswordConfirmation = FocusNode();
-
-  static final TextEditingController _textControllerUsernameSignUp =
-      TextEditingController();
   static final TextEditingController _textControllerNameSignUp =
       TextEditingController();
   static final TextEditingController _textControllerEmailSignUp =
@@ -155,7 +144,6 @@ class AuthenticationBloc
   static AuthenticationDataLoaded get _authenticationDataLoaded =>
       AuthenticationDataLoaded(
         focusNodePasswordConfirmation: _focusNodePasswordConfirmation,
-        textControllerUsernameSignUp: _textControllerUsernameSignUp,
         textControllerNameSignup: _textControllerNameSignUp,
         textControllerEmailSignUp: _textControllerEmailSignUp,
         textControllerPasswordSignUp: _textControllerPasswordSignUp,
@@ -170,7 +158,6 @@ class AuthenticationBloc
       );
 
   void _setStateToInitial() {
-    _textControllerUsernameSignUp.clear();
     _textControllerNameSignUp.clear();
     _textControllerEmailSignUp.clear();
     _textControllerPasswordSignUp.clear();
